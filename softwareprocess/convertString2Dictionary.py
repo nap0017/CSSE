@@ -2,7 +2,6 @@ import urllib
 
 def convertString2Dictionary(inputString = ""):
 
-
     String1="0123456789."
     String2="abcdefghijklmnopqrstuvwxyz"
     String3="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -12,21 +11,23 @@ def convertString2Dictionary(inputString = ""):
     if inputString == "" :
         return errorDict
 
-    #####Checks
+    #####Extra Checks
     if "%3D" not in inputString:
         #print ("NO 3D")
         return errorDict
+
     #2 check valid separator use and alphanumeric check
     counter1=0
-    #final1=0
-
+    inputString=inputString.replace("%2E",".")
     def remove_space_end(str1):
         str2=str1
-        if str1[len(str1)-3]=="%":
+        #print (str2)
+        if str1[len(str1)-3] == "%":
 
             str2=str1[:len(str1)-3]
-
-            str2=remove_space_end(str2)
+            #print (str2)
+            if str2 != "" and "%20" in str2:
+                str2=remove_space_end(str2)
 
         return str2
 
@@ -34,8 +35,8 @@ def convertString2Dictionary(inputString = ""):
         str2=str1
         if str1[0]=="%":
             str2=str1[3:]
-
-            str2=remove_space_start(str2)
+            if str2 != "" and "%20" in str2:
+                str2=remove_space_start(str2)
 
         return str2
 
@@ -52,8 +53,6 @@ def convertString2Dictionary(inputString = ""):
             return 1
         else:
             return 0
-
-
 
     for ch in inputString :
 
@@ -82,7 +81,6 @@ def convertString2Dictionary(inputString = ""):
                         #print("Key or Value contains white spaces")
                         return errorDict
 
-
     #4 Remove White Spaces
     inputstring1=inputString.replace("%20","")
 
@@ -106,7 +104,6 @@ def convertString2Dictionary(inputString = ""):
                 if inputstring1[counter:counter+3] == "%2C" :
                     counter3 = counter+3
         counter=counter+1
-
 
     #6 Check missing key or value
     #keys1=[]
@@ -135,11 +132,8 @@ def convertString2Dictionary(inputString = ""):
                 break
             k=k+1
 
-
-
+    #print (inputstring1)
     x_dict=dict(x.split("%3D") for x in inputstring1.split("%2C"))
-
     return x_dict
 
-#answer=convertString2Dictionary("a123%3Dabcd")
-#print (answer)
+
