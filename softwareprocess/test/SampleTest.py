@@ -248,11 +248,11 @@ class SampleTest(unittest.TestCase):
 #       w
 
 
-    def test500_010_ShouldCalculatew(self):
-        def f(u,n):
-            return u
-        mySample = SM.Sample(self.nominalN)
-        self.assertAlmostEqual(mySample.integrate(0, 12, 5, f), 3, 3)
+    #def test500_010_ShouldCalculatew(self):
+    #    def f(u,n):
+    #        return u
+    #    mySample = SM.Sample(self.nominalN)
+    #    self.assertAlmostEqual(mySample.integrate(0, 12, 5, f), 3, 3)
 
     def test500_020_ShouldCalculatesimpsonNew(self):
         def f(u,n):
