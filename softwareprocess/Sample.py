@@ -66,7 +66,7 @@ class Sample(object):
     
     def integrate(self, lowBound, highBound, n, f):
 
-        s=4.0
+        s=4
         w = (highBound - lowBound)/s
         simpsonnew = 0.0
         j = 1
