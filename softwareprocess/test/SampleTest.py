@@ -241,11 +241,15 @@ class SampleTest(unittest.TestCase):
 #      lowBound -> numeric validated
 #      highBound -> numeric validated
 #      n -> numeric validated
-#      f ->
+#      f -> function to integrate
 #   outputs
 #       float .GE. 0
 # Happy path
-#       w
+#       t -> 1.0
+#       case1: f(u,n) = u -> 1/2
+#       case2: f(u,n) = u**2 -> 1/3
+#       case3: f(u,n) = u**6 -> 1/7
+#       case4: f(u,n) = u**100 -> 1/101
 
 
     #def test500_010_ShouldCalculatew(self):
