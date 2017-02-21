@@ -66,13 +66,14 @@ class Sample(object):
     
     def integrate(self, lowBound, highBound, n, f):
         e=0.001
-        simpsonold = 0
+        simpsonold = 0.0
         simpsonnew = e
         s=4
-        j = 1
+
         while((abs(simpsonnew-simpsonold)/simpsonnew) > e):
                 simpsonold = simpsonnew
                 w = (highBound - lowBound)/(s*1.0)
+                j = 1
                 simpsonnew = 0.0
                 for i in range(1, s+2, 1):
                     if(i==1):
