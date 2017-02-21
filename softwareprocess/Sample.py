@@ -65,9 +65,7 @@ class Sample(object):
         return result
     
     def integrate(self, lowBound, highBound, n, f):
-        print f(2,0)
-        print f(2,4)
-        print f(4,5)
+
         pass
         
         

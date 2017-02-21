@@ -235,3 +235,21 @@ class SampleTest(unittest.TestCase):
         mySample = SM.Sample(self.nominalN)
         self.assertAlmostEquals(mySample.f(1, 5), 0.578703704)
 
+# 500 f
+# Analysis
+#   inputs
+#      lowBound -> numeric validated
+#      highBound -> numeric validated
+#      n -> numeric validated
+#      f ->
+#   outputs
+#       float .GE. 0
+# Happy path
+#
+
+
+    def test500_010_ShouldCalculateW(self):
+        def f(u,n):
+            return u
+        mySample = SM.Sample(self.nominalN)
+        self.assertAlmostEqual(mySample.integrate(0, 12, 5, f), 3, 3)
