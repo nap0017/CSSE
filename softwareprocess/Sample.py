@@ -65,8 +65,9 @@ class Sample(object):
         return result
     
     def integrate(self, lowBound, highBound, n, f):
-
-        pass
+        s=4
+        w = (highBound - lowBound)/s
+        return w
         
         
     

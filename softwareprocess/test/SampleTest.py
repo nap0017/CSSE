@@ -248,7 +248,7 @@ class SampleTest(unittest.TestCase):
 #
 
 
-    def test500_010_ShouldCalculateW(self):
+    def test500_010_ShouldCalculatew(self):
         def f(u,n):
             return u
         mySample = SM.Sample(self.nominalN)
