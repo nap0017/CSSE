@@ -265,3 +265,9 @@ class SampleTest(unittest.TestCase):
             return u**2
         mySample = SM.Sample(self.nominalN)
         self.assertAlmostEqual(mySample.integrate(0, 1, 5, f), abs(1/3.0), 3)
+
+    def test500_030_ShouldCalculatesimpsonNew(self):
+        def f(u,n):
+            return u**6
+        mySample = SM.Sample(self.nominalN)
+        self.assertAlmostEqual(mySample.integrate(0, 1, 5, f), abs(1/7.0), 3)
