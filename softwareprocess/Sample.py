@@ -72,7 +72,7 @@ class Sample(object):
         j = 1
 
         for i in range(1, s+2, 1):
-
+            print (i)
             if(i==1):
                 simpsonnew = simpsonnew + f(lowBound,n)
             elif(i==s+1):
