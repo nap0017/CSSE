@@ -245,7 +245,7 @@ class SampleTest(unittest.TestCase):
 #   outputs
 #       float .GE. 0
 # Happy path
-#
+#       w
 
 
     def test500_010_ShouldCalculatew(self):
@@ -253,3 +253,9 @@ class SampleTest(unittest.TestCase):
             return u
         mySample = SM.Sample(self.nominalN)
         self.assertAlmostEqual(mySample.integrate(0, 12, 5, f), 3, 3)
+
+    def test500_020_ShouldCalculatesimpsonNew(self):
+        def f(u,n):
+            return u
+        mySample = SM.Sample(self.nominalN)
+        self.assertAlmostEqual(mySample.integrate(0, 1, 5, f), 0.500, 3)
