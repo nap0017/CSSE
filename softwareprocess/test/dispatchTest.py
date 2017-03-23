@@ -29,7 +29,7 @@ class dispatchTest(unittest.TestCase):
         mySample = DP.dispatch(sighting)
         self.assertEqual(sighting,mySample)
     def test100_030_ShouldReturnSameDictionary(self):
-        sighting={'op':'predict'}
+        sighting={'op':'correct'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(sighting,mySample)
 # Sad Path
