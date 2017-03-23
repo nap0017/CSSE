@@ -24,16 +24,9 @@ class dispatchTest(unittest.TestCase):
         sighting={'op':'predict'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(sighting,mySample)
-    def test100_020_ShouldReturnSameDictionary(self):
-        sighting={'op':'correct'}
+    def test100_010_ShouldReturnSameDictionary(self):
+        sighting={'op':'predict'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(sighting,mySample)
-    def test100_030_ShouldReturnSameDictionary(self):
-        sighting={'op':'locale'}
-        mySample = DP.dispatch(sighting)
-        self.assertEqual(sighting,mySample)
-    def test100_040_ShouldReturnError(self):
-        sighting={}
-        result={'error':'no op  is specified1'}
-        mySample = DP.dispatch(sighting)
-        self.assertEqual(sighting,mySample)
+
+# Sad Path
