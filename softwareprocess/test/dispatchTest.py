@@ -51,6 +51,9 @@ class dispatchTest(unittest.TestCase):
         mySample = DP.dispatch(sighting)
         self.assertEqual(result,mySample)
 
+
+
+
 # Sad Path
     def test200_010_ShouldReturnError(self):
         sighting={}
@@ -75,5 +78,10 @@ class dispatchTest(unittest.TestCase):
     def test200_050_ShouldReturnError(self):
         sighting=None
         result={'error': 'parameter is missing'}
+        mySample = DP.dispatch(sighting)
+        self.assertEqual(result['error'],mySample['error'])
+    def test200_060_ShouldReturnError(self):
+        sighting={'op':'adjust'}
+        result={'error': 'mandatory information is missing'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
