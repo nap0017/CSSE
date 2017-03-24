@@ -24,7 +24,6 @@ def dispatch(values=None):
             if("d" not in obv):
                 values['error'] = 'observation is invalid'
                 return values
-                #return {'error': 'observation is invalid'}
 
         #newCode - End
         return values    #<-------------- replace this with your implementation
