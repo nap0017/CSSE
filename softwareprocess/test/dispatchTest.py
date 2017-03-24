@@ -57,3 +57,8 @@ class dispatchTest(unittest.TestCase):
         result={'error':'no op  is specified'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result,mySample)
+    def test200_020_ShouldReturnError(self):
+        sighting={'observation': '15d04.9', 'height': '6.0', 'pressure': '1010', 'horizon': 'artificial', 'temperature': '72'}
+        result={'error': 'no op  is specified'}
+        mySample = DP.dispatch(sighting)
+        self.assertEqual(result['error'],mySample['error'])
