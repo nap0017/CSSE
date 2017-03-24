@@ -109,3 +109,8 @@ class dispatchTest(unittest.TestCase):
         result={'error': 'height is invalid'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
+    def test300_020_ShouldReturnError(self):
+        sighting={'op':'adjust','observation': '80d59.0','height':'20','':''}
+        result={'error': 'height is invalid'}
+        mySample = DP.dispatch(sighting)
+        self.assertEqual(result['error'],mySample['error'])
