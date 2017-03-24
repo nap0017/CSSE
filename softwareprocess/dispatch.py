@@ -173,7 +173,6 @@ def dispatch(values=None):
         correctedaltitude1=str(newdegree)+"d"+str(correctedminute)
         #print (correctedaltitude1)
         values['altitude']=correctedaltitude1
-
         #newCode - End
         return values    #<-------------- replace this with your implementation
     elif(values['op'] == 'predict'):

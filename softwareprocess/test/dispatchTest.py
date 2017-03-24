@@ -130,3 +130,8 @@ class dispatchTest(unittest.TestCase):
         result={'error': 'horizon is invalid'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
+    def test300_050_ShouldReturnError(self):
+        sighting={'op':'adjust','observation': '80d59.0','altitude':'11d1.1'}
+        result={'error': 'altitude already exists'}
+        mySample = DP.dispatch(sighting)
+        self.assertEqual(result['error'],mySample['error'])
