@@ -62,8 +62,13 @@ class dispatchTest(unittest.TestCase):
         result={'error': 'no op  is specified'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
-    def test200_020_ShouldReturnError(self):
+    def test200_030_ShouldReturnError(self):
         sighting=42
+        result={'error': 'parameter is not a dictionary'}
+        mySample = DP.dispatch(sighting)
+        self.assertEqual(result['error'],mySample['error'])
+    def test200_040_ShouldReturnError(self):
+        sighting={'op': 'unknown'}
         result={'error': 'parameter is not a dictionary'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
