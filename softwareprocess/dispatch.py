@@ -74,6 +74,14 @@ def dispatch(values=None):
                     values['error'] = 'observation is invalid'
                     return values
                     #return {'error': 'observation is invalid'}
+            if(int(minutearray[0])<0 or int(minutearray[0])>59):
+                values['error'] = 'observation is invalid'
+                return values
+                #return {'error': 'observation is invalid'}
+            if(int(minutearray[1])<0 or int(minutearray[1])>9):
+                values['error'] = 'observation is invalid'
+                return values
+
 
         #newCode - End
         return values    #<-------------- replace this with your implementation
