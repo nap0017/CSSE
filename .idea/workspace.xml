@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dcf85ff-aabd-46f2-a2b6-40e94c3c8002" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/softwareprocess/dispatch.py" afterPath="$PROJECT_DIR$/softwareprocess/dispatch.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/softwareprocess/test/dispatchTest.py" afterPath="$PROJECT_DIR$/softwareprocess/test/dispatchTest.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,8 +30,8 @@
       <file leaf-file-name="dispatchTest.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/softwareprocess/test/dispatchTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="53" column="50" lean-forward="false" selection-start-line="53" selection-start-column="50" selection-end-line="53" selection-end-column="50" />
+            <state relative-caret-position="270">
+              <caret line="60" column="33" lean-forward="false" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -403,15 +402,6 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_Tests_(TDD) - 2017.03.23 at 19h 45m 26s.xml">
-      <configuration name="All Tests (TDD)" configurationId="tests" />
-    </history-entry>
-    <history-entry file="All_Tests_(TDD) - 2017.03.23 at 19h 46m 21s.xml">
-      <configuration name="All Tests (TDD)" configurationId="tests" />
-    </history-entry>
-    <history-entry file="All_Tests_(TDD) - 2017.03.23 at 19h 47m 02s.xml">
-      <configuration name="All Tests (TDD)" configurationId="tests" />
-    </history-entry>
     <history-entry file="All_Tests_(TDD) - 2017.03.23 at 19h 47m 43s.xml">
       <configuration name="All Tests (TDD)" configurationId="tests" />
     </history-entry>
@@ -431,6 +421,15 @@
       <configuration name="All Tests (TDD)" configurationId="tests" />
     </history-entry>
     <history-entry file="All_Tests_(TDD) - 2017.03.23 at 19h 58m 42s.xml">
+      <configuration name="All Tests (TDD)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="All_Tests_(TDD) - 2017.03.23 at 20h 01m 27s.xml">
+      <configuration name="All Tests (TDD)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="All_Tests_(TDD) - 2017.03.23 at 20h 01m 38s.xml">
+      <configuration name="All Tests (TDD)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="All_Tests_(TDD) - 2017.03.23 at 20h 01m 47s.xml">
       <configuration name="All Tests (TDD)" configurationId="tests" />
     </history-entry>
   </component>
@@ -633,8 +632,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/softwareprocess/test/dispatchTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="53" column="50" lean-forward="false" selection-start-line="53" selection-start-column="50" selection-end-line="53" selection-end-column="50" />
+        <state relative-caret-position="270">
+          <caret line="60" column="33" lean-forward="false" selection-start-line="60" selection-start-column="33" selection-end-line="60" selection-end-column="33" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

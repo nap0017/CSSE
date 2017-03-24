@@ -56,6 +56,11 @@ class dispatchTest(unittest.TestCase):
         result={'altitude':'9d54.7'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['altitude'],mySample['altitude'])
+    def test400_020_ShouldReturnCalculatedAltitude(self):
+        sighting={'op':'adjust','observation': '45d15.2','height':'6.0','horizon':'natural','pressure':'1010','temperature':'71'}
+        result={'altitude':'45d11.7'}
+        mySample = DP.dispatch(sighting)
+        self.assertEqual(result['altitude'],mySample['altitude'])
 
 
 
