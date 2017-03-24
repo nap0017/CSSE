@@ -85,3 +85,8 @@ class dispatchTest(unittest.TestCase):
         result={'error': 'mandatory information is missing'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
+    def test200_070_ShouldReturnError(self):
+        sighting={'op':'adjust','observation': '101'}
+        result={'error': 'observation is invalid'}
+        mySample = DP.dispatch(sighting)
+        self.assertEqual(result['error'],mySample['error'])
