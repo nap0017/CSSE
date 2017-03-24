@@ -47,6 +47,7 @@ class dispatchTest(unittest.TestCase):
 
 # Sad Path
     def test200_010_ShouldReturnError(self):
-        sighting={'op':'locale'}
+        sighting={}
+        result={}
         mySample = DP.dispatch(sighting)
-        self.assertEqual(sighting,mySample)
+        self.assertEqual(result,mySample)
