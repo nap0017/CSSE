@@ -18,6 +18,13 @@ def dispatch(values=None):
         if(not('observation' in values)):
             values['error'] = 'mandatory information is missing'
             return values
+        else:
+            obv=""
+            obv=values['observation']
+            if("d" not in obv):
+                values['error'] = 'observation is invalid'
+                return values
+                #return {'error': 'observation is invalid'}
 
         #newCode - End
         return values    #<-------------- replace this with your implementation
