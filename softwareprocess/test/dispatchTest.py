@@ -59,7 +59,7 @@ class dispatchTest(unittest.TestCase):
         sighting={'op':'adjust','observation': '10d0.0','height':'6.0','horizon':'artificial','pressure':'1010','temperature':'72'}
         result={'adjust':'9d54.7'}
         mySample = DP.dispatch(sighting)
-        self.assertEqual(result,mySample)
+        self.assertEqual(result['adjust'],mySample['adjust'])
 
 
 
