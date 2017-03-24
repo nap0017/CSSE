@@ -145,6 +145,34 @@ def dispatch(values=None):
                 values['error'] = 'horizon is invalid'
                 return values
             h2=values['horizon']
+        #Calculations
+        if(h2.lower() == "natural"):
+            dip= (-0.97 * math.sqrt(int(h1))) / 60
+        else:
+            dip=0
+
+        #converttemperature
+        tempc=(int(t1)-32.0)*(5/9.0)
+
+        #altitudeconversiontoradians
+        minutedegree=float(obvarray[1])/60.0
+        totaldegree=float(obvarray[0])+minutedegree
+        altituderadian=(totaldegree*3.14)/180.0
+        #print (altituderadian)
+
+        refraction=(-0.00452*int(p1)) / (273+tempc)/(math.tan(altituderadian))
+        correctedaltitude=totaldegree+dip+refraction
+        newdegree,newminute = divmod(correctedaltitude,1)
+        newdegree=int(newdegree)
+        newminute=newminute*60
+        correctedminute=round(newminute,1)
+        while correctedminute>60.0:
+            correctedminute=correctedminute-60.0
+            newdegree=newdegree+1
+        #print (correctedminute)
+        correctedaltitude1=str(newdegree)+"d"+str(correctedminute)
+        #print (correctedaltitude1)
+        values['altitude']=correctedaltitude1
 
         #newCode - End
         return values    #<-------------- replace this with your implementation
