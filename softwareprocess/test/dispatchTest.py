@@ -72,3 +72,8 @@ class dispatchTest(unittest.TestCase):
         result={'error': 'op is not a legal operation'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
+    def test200_050_ShouldReturnError(self):
+        sighting=
+        result={'error': 'parameter is missing'}
+        mySample = DP.dispatch(sighting)
+        self.assertEqual(result['error'],mySample['error'])
