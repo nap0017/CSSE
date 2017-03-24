@@ -22,28 +22,34 @@ class dispatchTest(unittest.TestCase):
 
     def test100_010_ShouldReturnSameDictionary(self):
         sighting={'op':'predict'}
+        result={'op':'predict'}
         mySample = DP.dispatch(sighting)
-        self.assertEqual(sighting,mySample)
+        self.assertEqual(result,mySample)
     def test100_020_ShouldReturnSameDictionary(self):
         sighting={'op':'predict','observation':'015d04.9', 'height':'6.0'}
+        result={'op':'predict','observation':'015d04.9', 'height':'6.0'}
         mySample = DP.dispatch(sighting)
-        self.assertEqual(sighting,mySample)
+        self.assertEqual(result,mySample)
     def test100_030_ShouldReturnSameDictionary(self):
         sighting={'op':'correct'}
+        result={'op':'correct'}
         mySample = DP.dispatch(sighting)
-        self.assertEqual(sighting,mySample)
+        self.assertEqual(result,mySample)
     def test100_040_ShouldReturnSameDictionary(self):
         sighting={'op':'correct','observation':'015d04.9', 'height':'6.0'}
+        result={'op':'correct','observation':'015d04.9', 'height':'6.0'}
         mySample = DP.dispatch(sighting)
-        self.assertEqual(sighting,mySample)
+        self.assertEqual(result,mySample)
     def test100_050_ShouldReturnSameDictionary(self):
         sighting={'op':'locale'}
+        result={'op':'locale'}
         mySample = DP.dispatch(sighting)
-        self.assertEqual(sighting,mySample)
+        self.assertEqual(result,mySample)
     def test100_060_ShouldReturnSameDictionary(self):
         sighting={'op':'locale','observation':'015d04.9', 'height':'6.0'}
+        result={'op':'locale','observation':'015d04.9', 'height':'6.0'}
         mySample = DP.dispatch(sighting)
-        self.assertEqual(sighting,mySample)
+        self.assertEqual(result,mySample)
 
 # Sad Path
     def test200_010_ShouldReturnError(self):
