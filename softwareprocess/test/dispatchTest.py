@@ -116,6 +116,6 @@ class dispatchTest(unittest.TestCase):
         self.assertEqual(result['error'],mySample['error'])
     def test300_030_ShouldReturnError(self):
         sighting={'op':'adjust','observation': '80d59.0','height':'20','temperature':'10','pressure':'10a'}
-        result={'error': 'temperature is invalid'}
+        result={'error': 'pressure is invalid'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])

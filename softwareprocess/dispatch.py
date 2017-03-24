@@ -114,6 +114,24 @@ def dispatch(values=None):
                 return values
             t1=values['temperature']
 
+        #pressure validations
+
+        if(not('pressure' in values)):
+            p1=1010
+        else:
+            if(values['pressure']==""):
+                values['error'] = 'pressure is invalid'
+                return values
+            pressure1=values['pressure']
+            if(pressure1.isdigit()==False):
+                values['error'] = 'pressure is invalid'
+                return values
+
+            if(int(values['pressure']) < 100 or int(values['pressure']) > 1100):
+                values['error'] = 'pressure is invalid'
+                return values
+            p1=values['pressure']
+
         #newCode - End
         return values    #<-------------- replace this with your implementation
     elif(values['op'] == 'predict'):
