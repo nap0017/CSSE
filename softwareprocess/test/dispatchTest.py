@@ -16,8 +16,14 @@ class dispatchTest(unittest.TestCase):
 #           'op':'predict'
 #           'op':'correct'
 #           'op':'locale'
+#           'op':'adjust'
 #    Sad path analysis:
-#
+#           {} : Should return error
+#           'op': 'unknown' : Should return error
+#           'op':'adjust','observation': '101d' : Should return error
+#           'op':'adjust','observation': '80d59.0','height':'20','temperature':'10a' : Should return error
+#           'op':'adjust','observation': '80d59.0','altitude':'11d1.1' : Should return error
+
 # Happy path
 
     def test100_010_ShouldReturnSameDictionary(self):
