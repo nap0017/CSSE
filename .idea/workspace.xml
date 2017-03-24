@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dcf85ff-aabd-46f2-a2b6-40e94c3c8002" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/softwareprocess/dispatch.py" afterPath="$PROJECT_DIR$/softwareprocess/dispatch.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/softwareprocess/test/dispatchTest.py" afterPath="$PROJECT_DIR$/softwareprocess/test/dispatchTest.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/softwareprocess/test/dispatchTest.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="253">
-              <caret line="93" column="52" lean-forward="false" selection-start-line="93" selection-start-column="52" selection-end-line="93" selection-end-column="52" />
+              <caret line="98" column="52" lean-forward="false" selection-start-line="98" selection-start-column="52" selection-end-line="98" selection-end-column="52" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -49,8 +49,8 @@
       <list>
         <option value="$PROJECT_DIR$/softwareprocess/Sample.py" />
         <option value="$PROJECT_DIR$/softwareprocess/test/SampleTest.py" />
-        <option value="$PROJECT_DIR$/softwareprocess/test/dispatchTest.py" />
         <option value="$PROJECT_DIR$/softwareprocess/dispatch.py" />
+        <option value="$PROJECT_DIR$/softwareprocess/test/dispatchTest.py" />
       </list>
     </option>
   </component>
@@ -402,9 +402,6 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_Tests_(TDD) - 2017.03.23 at 19h 11m 19s.xml">
-      <configuration name="All Tests (TDD)" configurationId="tests" />
-    </history-entry>
     <history-entry file="All_Tests_(TDD) - 2017.03.23 at 19h 11m 56s.xml">
       <configuration name="All Tests (TDD)" configurationId="tests" />
     </history-entry>
@@ -430,6 +427,9 @@
       <configuration name="All Tests (TDD)" configurationId="tests" />
     </history-entry>
     <history-entry file="All_Tests_(TDD) - 2017.03.23 at 19h 26m 01s.xml">
+      <configuration name="All Tests (TDD)" configurationId="tests" />
+    </history-entry>
+    <history-entry file="All_Tests_(TDD) - 2017.03.23 at 19h 27m 16s.xml">
       <configuration name="All Tests (TDD)" configurationId="tests" />
     </history-entry>
   </component>
@@ -625,7 +625,7 @@
     <entry file="file://$PROJECT_DIR$/softwareprocess/test/dispatchTest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
-          <caret line="93" column="52" lean-forward="false" selection-start-line="93" selection-start-column="52" selection-end-line="93" selection-end-column="52" />
+          <caret line="98" column="52" lean-forward="false" selection-start-line="98" selection-start-column="52" selection-end-line="98" selection-end-column="52" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
