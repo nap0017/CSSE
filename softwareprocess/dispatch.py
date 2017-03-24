@@ -132,6 +132,20 @@ def dispatch(values=None):
                 return values
             p1=values['pressure']
 
+        #horizon validations
+        if(not('horizon' in values)):
+            h2="natural"
+        else:
+
+            if(values['horizon']==""):
+                values['error'] = 'horizon is invalid'
+                return values
+
+            if(values['horizon'].lower() != "artificial" and values['horizon'].lower() != "natural"):
+                values['error'] = 'horizon is invalid'
+                return values
+            h2=values['horizon']
+
         #newCode - End
         return values    #<-------------- replace this with your implementation
     elif(values['op'] == 'predict'):
