@@ -27,57 +27,44 @@ def dispatch(values=None):
                 return values
             obvarray=[]
             for x in obv.split("d"):
-                #print(x)
                 obvarray.append(x)
-            #print(obvarray)
             if(obvarray[0]==""):
                 values['error'] = 'observation is invalid'
                 return values
-                #return {'error': 'observation is invalid'}}
             if(obvarray[1]==""):
                 values['error'] = 'observation is invalid'
                 return values
-                #return {'error': 'observation is invalid'}
             for ch in obvarray[0]:
                 if(ch not in String1):
                     values['error'] = 'observation is invalid'
                     return values
-                    #return {'error': 'observation is invalid'}
 
             if(int(obvarray[0])>=int(90) or int(obvarray[0])<0 ):
                 values['error'] = 'observation is invalid'
                 return values
-                #return {'error': 'observation is invalid'}
             if("." not in obvarray[1]):
                 values['error'] = 'observation is invalid'
                 return values
-                #return {'error': 'observation is invalid'}
             minutearray=[]
             for x in obvarray[1].split("."):
-                #print(x)
                 minutearray.append(x)
             if(minutearray[0]==""):
                 values['error'] = 'observation is invalid'
                 return values
-                #return {'error': 'observation is invalid'}
             if(minutearray[1]==""):
                 values['error'] = 'observation is invalid'
                 return values
-                #return {'error': 'observation is invalid'}
             for ch in minutearray[0]:
                 if(ch not in String1):
                     values['error'] = 'observation is invalid'
                     return values
-                    #return {'error': 'observation is invalid'}
             for ch in minutearray[1]:
                 if(ch not in String1):
                     values['error'] = 'observation is invalid'
                     return values
-                    #return {'error': 'observation is invalid'}
             if(int(minutearray[0])<0 or int(minutearray[0])>59):
                 values['error'] = 'observation is invalid'
                 return values
-                #return {'error': 'observation is invalid'}
             if(int(minutearray[1])<0 or int(minutearray[1])>9):
                 values['error'] = 'observation is invalid'
                 return values
