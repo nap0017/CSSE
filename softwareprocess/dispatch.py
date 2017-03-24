@@ -69,6 +69,28 @@ def dispatch(values=None):
                 values['error'] = 'observation is invalid'
                 return values
 
+        #height validations
+
+        if(not('height' in values)):
+            h1=0
+            #values['height'] = 0
+        else:
+            if(values['height']==""):
+                values['error'] = 'height is invalid'
+                return values
+                #return {'error': 'height is invalid'}
+            height1=values['height']
+
+            #if(height1.isdigit()==False):
+            #    values['error'] = 'height is invalid1'
+            #    return values
+                #return {'error': 'height is invalid'}
+
+            if(float(values['height']) < 0.0 ):
+                values['error'] = 'height is invalid'
+                return values
+                #return {'error': 'height is invalid'}
+            h1=values['height']
 
         #newCode - End
         return values    #<-------------- replace this with your implementation
