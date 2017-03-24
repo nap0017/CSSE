@@ -50,12 +50,8 @@ class dispatchTest(unittest.TestCase):
         result={'op':'locate','observation':'015d04.9', 'height':'6.0'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result,mySample)
-    def test100_070_ShouldReturnError(self):
-        sighting={'op':'adjust','observation': '80d59.0','height':'20.0'}
-        result={'op':'adjust','observation': '80d59.0','height':'20.0'}
-        mySample = DP.dispatch(sighting)
-        self.assertEqual(result,mySample)
-    def test400_010_ShouldReturnError(self):
+
+    def test400_010_ShouldReturnCalculatedAltitude(self):
         sighting={'op':'adjust','observation': '10d0.0','height':'6.0','horizon':'artificial','pressure':'1010','temperature':'72'}
         result={'altitude':'9d54.7'}
         mySample = DP.dispatch(sighting)

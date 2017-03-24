@@ -147,7 +147,7 @@ def dispatch(values=None):
             h2=values['horizon']
         #Calculations
         if(h2.lower() == "natural"):
-            dip= (-0.97 * math.sqrt(int(h1))) / 60
+            dip= (-0.97 * math.sqrt(float(h1))) / 60
         else:
             dip=0
 
