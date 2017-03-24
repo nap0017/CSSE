@@ -41,13 +41,13 @@ class dispatchTest(unittest.TestCase):
         mySample = DP.dispatch(sighting)
         self.assertEqual(result,mySample)
     def test100_050_ShouldReturnSameDictionary(self):
-        sighting={'op':'locale'}
-        result={'op':'locale'}
+        sighting={'op':'locate'}
+        result={'op':'locate'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result,mySample)
     def test100_060_ShouldReturnSameDictionary(self):
-        sighting={'op':'locale','observation':'015d04.9', 'height':'6.0'}
-        result={'op':'locale','observation':'015d04.9', 'height':'6.0'}
+        sighting={'op':'locate','observation':'015d04.9', 'height':'6.0'}
+        result={'op':'locate','observation':'015d04.9', 'height':'6.0'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result,mySample)
 
