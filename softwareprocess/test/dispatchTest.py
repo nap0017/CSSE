@@ -48,6 +48,6 @@ class dispatchTest(unittest.TestCase):
 # Sad Path
     def test200_010_ShouldReturnError(self):
         sighting={}
-        result={}
+        result={'error':'no op  is specified'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result,mySample)
