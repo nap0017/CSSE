@@ -3,6 +3,7 @@ import math
 def dispatch(values=None):
 
     String1="0123456789"
+    String2=".0123456789"
     #Validate parm
     if(values == None):
         return {'error': 'parameter is missing'}
@@ -81,15 +82,20 @@ def dispatch(values=None):
                 #return {'error': 'height is invalid'}
             height1=values['height']
 
-            #if(height1.isdigit()==False):
-            #    values['error'] = 'height is invalid1'
-            #    return values
-                #return {'error': 'height is invalid'}
+
+            if("." in values['height']):
+                for ch in values['height']:
+                    if(ch not in String2):
+                        values['error'] = 'height is invalid'
+                        return values
+            else:
+                if(height1.isdigit()==False):
+                    values['error'] = 'height is invalid'
+                    return values
 
             if(float(values['height']) < 0.0 ):
                 values['error'] = 'height is invalid'
                 return values
-                #return {'error': 'height is invalid'}
             h1=values['height']
 
         #newCode - End
