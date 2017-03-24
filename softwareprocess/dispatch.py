@@ -98,6 +98,22 @@ def dispatch(values=None):
                 return values
             h1=values['height']
 
+        #temperature validations
+        if(not('temperature' in values)):
+            t1=72
+        else:
+            if(values['temperature']==""):
+                values['error'] = 'temperature is invalid'
+                return values
+            temp=values['temperature']
+            if(temp.isdigit()==False):
+                values['error'] = 'temperature is invalid'
+                return values
+            if(int(values['temperature']) < -20 or int(values['temperature']) > 120):
+                values['error'] = 'temperature is invalid'
+                return values
+            t1=values['temperature']
+
         #newCode - End
         return values    #<-------------- replace this with your implementation
     elif(values['op'] == 'predict'):
