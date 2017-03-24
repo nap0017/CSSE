@@ -73,7 +73,7 @@ class dispatchTest(unittest.TestCase):
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
     def test200_050_ShouldReturnError(self):
-        sighting=
+        sighting=None
         result={'error': 'parameter is missing'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
