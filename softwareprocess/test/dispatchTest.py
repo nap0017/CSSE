@@ -69,6 +69,6 @@ class dispatchTest(unittest.TestCase):
         self.assertEqual(result['error'],mySample['error'])
     def test200_040_ShouldReturnError(self):
         sighting={'op': 'unknown'}
-        result={'error': 'parameter is not a dictionary'}
+        result={'error': 'op is not a legal operation'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
