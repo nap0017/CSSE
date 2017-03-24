@@ -16,6 +16,11 @@ def dispatch(values=None):
     #Perform designated function
     if(values['op'] == 'adjust'):
         #newCode - Start
+
+        #altitude check
+        if(('altitude' in values)):
+            values['error'] = 'altitude already exists'
+            return values
         #observation validations
         if(not('observation' in values)):
             values['error'] = 'mandatory information is missing'
