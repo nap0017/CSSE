@@ -23,7 +23,8 @@ class dispatchTest(unittest.TestCase):
     def test100_010_ShouldReturnSameDictionary(self):
         sighting={'op':'predict'}
         mySample = DP.dispatch(sighting)
-        self.assertEqual(sighting,mySample)
+       # self.assertEqual(sighting,mySample)
+        self.assertEqual('predict', mySample['op'])
     def test100_020_ShouldReturnSameDictionary(self):
         sighting={'op':'correct'}
         mySample = DP.dispatch(sighting)
@@ -34,6 +35,6 @@ class dispatchTest(unittest.TestCase):
         self.assertEqual(sighting,mySample)
     def test100_040_ShouldReturnError(self):
         sighting={}
-        result={'error':'no op  is specified1'}
+        result={'error':'no op  is specified'}
         mySample = DP.dispatch(sighting)
-        self.assertEqual(sighting,mySample)
+        self.assertEqual(result,mySample)
