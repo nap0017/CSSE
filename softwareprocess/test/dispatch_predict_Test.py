@@ -2,7 +2,7 @@ import unittest
 
 import softwareprocess.dispatch as DP
 
-class dispatchTest(unittest.TestCase):
+class dispatch_predict_Test(unittest.TestCase):
 
 # -----------------------------------------------------------------------
 # ---- Acceptance Tests
