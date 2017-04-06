@@ -1,6 +1,6 @@
 import unittest
+
 import softwareprocess.dispatch as DP
-import math
 
 
 class dispatchTest(unittest.TestCase):
