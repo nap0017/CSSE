@@ -225,7 +225,7 @@ def checkStar(star):
 
 def checkDate(date):
     counter_date=0
-    if(date.length!=10):
+    if(len(date)!=10):
         return -1
 
     for x in date:
