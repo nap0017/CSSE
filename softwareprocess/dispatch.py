@@ -231,6 +231,7 @@ def checkStar(star):
 
 def checkDate(date):
     counter_date=0
+
     if(len(date)!=10):
         return -1
 
@@ -245,9 +246,9 @@ def checkDate(date):
 
     if(date[0:4]<2001):
         return -1
-    if(date[5:2]<0 and date[5:2]>12):
+    if(date[5:2]<0 or date[5:2]>12):
         return -1
-    if(date[8:2]<0 and date[8:2]>31):
+    if(date[8:2]<0 or date[8:2]>31):
         return -1
 
     return 0
