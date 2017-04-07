@@ -251,9 +251,9 @@ def checkDate(date):
 
     if(int(date[0:4])<2001):
         return -1
-    if((int(date[5:2])<int(0)) or (int(date[5:2])>int(12))):
+    if((int(date[5:7])<int(0)) or (int(date[5:7])>int(12))):
         return -1
-    if(int(date[8:2])<0 or int(date[8:2])>31):
+    if(int(date[8:10])<0 or int(date[8:10])>31):
         return -1
 
     return 0
@@ -275,9 +275,9 @@ def checkTime(time):
 
     if(int(time[0:2])<0 or int(time[0:2])>24):
         return -1
-    if(int(time[3:2])<0 or int(time[3:2])>60):
+    if(int(time[3:5])<0 or int(time[3:5])>60):
         return -1
-    if(int(time[6:2])<0 or int(time[6:2])>60):
+    if(int(time[6:8])<0 or int(time[6:8])>60):
         return -1
 
     return 0
