@@ -54,20 +54,20 @@ class dispatch_predict_Test(unittest.TestCase):
 
     def test200_004_ShouldReturnDateError(self):
         sighting={'op':'predict', 'body': 'Betelgeuse', 'date': '2016-01-99', 'time': '03:15:42'}
-        result={'op':'predict', 'body': 'Betelgeuse', 'date': '2016-99-17', 'time': '03:15:42', 'error':'invalid date'}
+        result={'op':'predict', 'body': 'Betelgeuse', 'date': '2016-01-99', 'time': '03:15:42', 'error':'invalid date'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
 
     def test200_005_ShouldReturnDateError(self):
         sighting={'op':'predict', 'body': 'Betelgeuse', 'date': '2000-01-17', 'time': '03:15:42'}
-        result={'op':'predict', 'body': 'Betelgeuse', 'date': '2016-99-17', 'time': '03:15:42', 'error':'invalid date'}
+        result={'op':'predict', 'body': 'Betelgeuse', 'date': '2000-01-17', 'time': '03:15:42', 'error':'invalid date'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
 
 
     def test200_006_ShouldReturnDateError(self):
-        sighting={'op':'predict', 'body': 'Betelgeuse', 'date': '20016/01/17', 'time': '03:15:42'}
-        result={'op':'predict', 'body': 'Betelgeuse', 'date': '2016-99-17', 'time': '03:15:42', 'error':'invalid date'}
+        sighting={'op':'predict', 'body': 'Betelgeuse', 'date': '2016/01/17', 'time': '03:15:42'}
+        result={'op':'predict', 'body': 'Betelgeuse', 'date': '2016/01/17', 'time': '03:15:42', 'error':'invalid date'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
 
