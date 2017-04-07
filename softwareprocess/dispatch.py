@@ -192,7 +192,7 @@ def dispatch(values=None):
         if(('long' in values)):
             values['error'] = 'invalid input given(long)'
             return values
-        if(not('lat' in values)):
+        if(('lat' in values)):
             values['error'] = 'invalid input given(lat)'
             return values
         #star validations
