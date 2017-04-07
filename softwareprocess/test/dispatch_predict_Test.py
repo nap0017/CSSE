@@ -89,3 +89,10 @@ class dispatch_predict_Test(unittest.TestCase):
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
 
+
+    def test200_010_ShouldReturnTimeError(self):
+        sighting={'op':'predict', 'body': 'Betelgeuse', 'date': '2016-01-17', 'time': '03.15.10'}
+        result={'op':'predict', 'body': 'Betelgeuse', 'date': '2016-01-17', 'time': '03.15.10', 'error':'invalid time'}
+        mySample = DP.dispatch(sighting)
+        self.assertEqual(result['error'],mySample['error'])
+
