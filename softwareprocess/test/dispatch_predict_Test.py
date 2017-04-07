@@ -40,6 +40,12 @@ class dispatch_predict_Test(unittest.TestCase):
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
 
+    def test200_002_ShouldReturnError(self):
+        sighting={'op':'predict', 'body': 'unknown', 'date': '2016-01-17', 'time': '03:15:42'}
+        result={'op':'predict', 'body': 'unknown', 'date': '2016-01-17', 'time': '03:15:42', 'error':'star not in catalog'}
+        mySample = DP.dispatch(sighting)
+        self.assertEqual(result['error'],mySample['error'])
+
 
 
 

@@ -181,11 +181,17 @@ def dispatch(values=None):
         #newCode - End
         return values    #<-------------- replace this with your implementation
     elif(values['op'] == 'predict'):
-        #observation validations
+
+        #body validations
         if(not('body' in values)):
             values['error'] = 'mandatory information is missing'
             return values
-        
+        #star validations
+        result=checkStar(values['body'])
+        if(result==-1):
+            values['error'] = 'star not in catalog'
+            return values
+
         return values    #This calculation is stubbed out
     elif(values['op'] == 'correct'):
         return values    #This calculation is stubbed out
@@ -194,3 +200,13 @@ def dispatch(values=None):
     else:
         values['error'] = 'op is not a legal operation'
         return values
+
+def checkStar(star):
+    name=['a','b']
+    counter=0
+    for x in name:
+        if(star==name):
+            return counter
+        counter=counter+1
+    return -1
+
