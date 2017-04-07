@@ -181,6 +181,11 @@ def dispatch(values=None):
         #newCode - End
         return values    #<-------------- replace this with your implementation
     elif(values['op'] == 'predict'):
+        #observation validations
+        if(not('body' in values)):
+            values['error'] = 'mandatory information is missing'
+            return values
+        
         return values    #This calculation is stubbed out
     elif(values['op'] == 'correct'):
         return values    #This calculation is stubbed out
