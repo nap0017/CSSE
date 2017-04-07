@@ -26,7 +26,7 @@ class dispatch_predict_Test(unittest.TestCase):
 
 
 
-    def test100_001_ShouldReturnCalculatedLatitude(self):
+    def test100_001_ShouldReturnCalculatedLatitudeAnd(self):
         sighting={'op':'predict', 'body': 'Betelgeuse', 'date': '2016-01-17', 'time': '03:15:42'}
         result={'op':'predict', 'body': 'Betelgeuse', 'date': '2016-01-17', 'time': '03:15:42', 'long':'75d53.6', 'lat':'7d24.3'}
         mySample = DP.dispatch(sighting)
