@@ -188,6 +188,13 @@ def dispatch(values=None):
         if(not('body' in values)):
             values['error'] = 'mandatory information is missing'
             return values
+        #long and lat validations
+        if(('long' in values)):
+            values['error'] = 'invalid input given(long)'
+            return values
+        if(not('lat' in values)):
+            values['error'] = 'invalid input given(lat)'
+            return values
         #star validations
         result_body=checkStar(values['body'])
         if(result_body==-1):
