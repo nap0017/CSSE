@@ -265,13 +265,13 @@ def checkTime(time):
         return -1
 
     for x in time:
-        if(counter_date==2 or counter_date==5):
+        if(counter_time==2 or counter_time==5):
             if(x!=':'):
                 return -1
         else:
             if(x.isdigit()==False):
                 return -1
-        counter_date=counter_date+1;
+        counter_time=counter_time+1;
 
     if(int(time[0:2])<0 or int(time[0:2])>24):
         return -1
