@@ -196,6 +196,9 @@ def dispatch(values=None):
 
         #date check
         result_date=checkDate(values['date'])
+        if(result_date==-1):
+            values['error'] = 'invalid date'
+            return values
 
 
 
@@ -221,6 +224,24 @@ def checkStar(star):
     return -1
 
 def checkDate(date):
+    counter_date=0
+    if(date.length!=10):
+        return -1
+
+    for x in date:
+        if(counter_date==4 or counter_date==7):
+            if(x!='-'):
+                return -1
+        else:
+            if(x.isdigit()==False):
+                return -1
+    if(date[0:4]<2001):
+        return -1
+    if(date[5:2]<0 and date[5:2]>12):
+        return -1
+    if(date[8:2]<0 and date[8:2]>31):
+        return -1
+
 
 
     return -1
