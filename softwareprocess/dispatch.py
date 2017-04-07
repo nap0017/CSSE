@@ -195,17 +195,22 @@ def dispatch(values=None):
             return values
 
         #date check
-        result_date=checkDate(values['date'])
-        if(result_date==-1):
-            values['error'] = 'invalid date'
-            return values
+        if('date' in values):
+            result_date=checkDate(values['date'])
+            if(result_date==-1):
+                values['error'] = 'invalid date'
+                return values
+        else:
+            date_default='2001-01-01'
 
         #time check
-        result_time=checkTime(values['time'])
-        if(result_time==-1):
-            values['error'] = 'invalid time'
-            return values
-
+        if('time' in values):
+            result_time=checkTime(values['time'])
+            if(result_time==-1):
+                values['error'] = 'invalid time'
+                return values
+        else:
+            time_default='00:00:00'
 
 
 
@@ -244,16 +249,35 @@ def checkDate(date):
                 return -1
         counter_date=counter_date+1;
 
-    if(date[0:4]<2001):
+    if(int(date[0:4])<2001):
         return -1
-    if(date[5:2]<0 or date[5:2]>12):
+    if(int(date[5:2])<0 or int(date[5:2])>12):
         return -1
-    if(date[8:2]<0 or date[8:2]>31):
+    if(int(date[8:2])<0 or int(date[8:2])>31):
         return -1
 
     return 0
 
 def checkTime(time):
-    counter_date=0
+    counter_time=0
 
-    return -1
+    if(len(time)!=8):
+        return -1
+
+    for x in time:
+        if(counter_date==2 or counter_date==5):
+            if(x!=':'):
+                return -1
+        else:
+            if(x.isdigit()==False):
+                return -1
+        counter_date=counter_date+1;
+
+    if(int(time[0:2])<0 or int(time[0:2])>24):
+        return -1
+    if(int(time[3:2])<0 or int(time[3:2])>60):
+        return -1
+    if(int(time[6:2])<0 or int(time[6:2])>60):
+        return -1
+
+    return 0
