@@ -251,7 +251,7 @@ def checkDate(date):
 
     if(int(date[0:4])<2001):
         return -1
-    if(int(date[5:2])<int(0) or int(date[5:2])>int(12)):
+    if((int(date[5:2])<int(0)) or (int(date[5:2])>int(12))):
         return -1
     if(int(date[8:2])<0 or int(date[8:2])>31):
         return -1
