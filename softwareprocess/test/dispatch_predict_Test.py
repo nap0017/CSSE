@@ -14,4 +14,32 @@ class dispatch_predict_Test(unittest.TestCase):
 #    Happy path analysis:
 #
 #    Sad path analysis:
-#
+# {'op': 'predict'}  : Should return error
+
+
+
+
+
+
+# Happy path
+
+
+
+
+
+
+
+
+
+
+# Sad Path
+
+    def test200_001_ShouldReturnError(self):
+        sighting={'op': 'predict'}
+        result={'error':'mandatory information is missing', 'op': 'predict'}
+        mySample = DP.dispatch(sighting)
+        self.assertEqual(result['error'],mySample['error'])
+
+
+
+
