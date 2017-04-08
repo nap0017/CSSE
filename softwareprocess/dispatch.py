@@ -368,7 +368,7 @@ def calculateCumulativeProgression(GHA,year):
         total=total-60.0
         degree=degree+1
     total=round(total,1)
-    result='-'+degree+'d'+total
+    result='-'+str(degree)+'d'+str(total)
     return result
 
 
