@@ -18,8 +18,8 @@
       <file leaf-file-name="dispatch.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/softwareprocess/dispatch.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2813">
-              <caret line="253" column="31" lean-forward="false" selection-start-line="253" selection-start-column="15" selection-end-line="253" selection-end-column="31" />
+            <state relative-caret-position="6780">
+              <caret line="452" column="0" lean-forward="true" selection-start-line="452" selection-start-column="0" selection-end-line="452" selection-end-column="0" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -27,24 +27,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dispatch_predict_Test.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dispatch_predict_Test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/softwareprocess/test/dispatch_predict_Test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="467">
+              <caret line="47" column="8" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Sample.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/softwareprocess/Sample.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -454,9 +444,6 @@
     <option name="remove_strategy" value="false" />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_Tests_(TDD) - 2017.04.07 at 02h 30m 50s.xml">
-      <configuration name="All Tests (TDD)" configurationId="tests" />
-    </history-entry>
     <history-entry file="All_Tests_(TDD) - 2017.04.07 at 02h 32m 18s.xml">
       <configuration name="All Tests (TDD)" configurationId="tests" />
     </history-entry>
@@ -481,6 +468,9 @@
     <history-entry file="All_Tests_(TDD) - 2017.04.07 at 22h 27m 58s.xml">
       <configuration name="All Tests (TDD)" configurationId="tests" />
     </history-entry>
+    <history-entry file="All_Tests_(TDD) - 2017.04.07 at 22h 31m 50s.xml">
+      <configuration name="All Tests (TDD)" configurationId="tests" />
+    </history-entry>
     <history-entry file="Unittests_in_dispatch_predict_Test - 2017.04.07 at 22h 28m 30s.xml">
       <configuration name="Unittests in dispatch_predict_Test" configurationId="tests" />
     </history-entry>
@@ -492,7 +482,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17842074" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31929824" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982457" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32748538" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32748538" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39649123" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -757,16 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/softwareprocess/dispatch.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2813">
-          <caret line="253" column="31" lean-forward="false" selection-start-line="253" selection-start-column="15" selection-end-line="253" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/softwareprocess/convertString2Dictionary.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="355">
@@ -775,21 +755,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/softwareprocess/test/dispatch_predict_Test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/softwareprocess/Sample.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/softwareprocess/dispatch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6780">
+          <caret line="452" column="0" lean-forward="true" selection-start-line="452" selection-start-column="0" selection-end-line="452" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/softwareprocess/test/dispatch_predict_Test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="47" column="8" lean-forward="false" selection-start-line="47" selection-start-column="8" selection-end-line="47" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
