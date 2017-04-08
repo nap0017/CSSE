@@ -1,4 +1,5 @@
 import math
+from datetime import datetime, timedelta
 
 def dispatch(values=None):
 
@@ -180,6 +181,7 @@ def dispatch(values=None):
         values['altitude']=correctedaltitude1
         #newCode - End
         return values    #<-------------- replace this with your implementation
+
     elif(values['op'] == 'predict'):
         SHA=['357d41.7','353d14.1','349d38.4','348d54.1','335d25.5','327d58.7','316d41.3','315d16.8','314d13.0','308d37.4','290d47.1','281d10.1','280d31.4','278d29.8','278d10.1','275d44.3','270d59.1','263d54.8','258d31.7','255d10.8','244d57.5','243d25.2','234d16.6','222d50.7','221d38.4','217d54.1','207d41.4','193d49.4','182d31.8','175d50.4','173d07.2','171d58.8','166d19.4','158d29.5','152d57.8','148d45.5','148d05.6','145d54.2','139d49.6','137d03.7','137d21.0','126d09.9','112d24.4','107d25.2','102d10.9','96d20.0','96d05.2','90d45.9','83d41.9','80d38.2','75d56.6','62d06.9','53d17.2','49d30.7','33d45.7','27d42.0','15d22.4','13d51.8','13d36.7']
         declination=['29d10.9','-42d13.4','56d37.7','-17d54.1','-57d09.7','23d32.3','89d20.1','-40d14.8','4d09.0','49d55.1','16d32.3','-8d11.3','46d00.7','6d21.6','28d37.1','-1d11.8','7d24.3','-52d42.5','-16d44.3','-28d59.9','5d10.9','27d59.0','-59d33.7','-43d29.8','-69d46.9','-8d43.8','11d53.2','61d39.5','14d28.9','-17d37.7','-63d10.9','-57d11.9','55d52.1','-11d14.5','49d13.8','-60d26.6','-36d26.6','19d06.2','-60d53.6','-16d06.3','74d05.2','26d39.7','-26d27.8','-69d03.0','-15d44.4','-37d06.6','12d33.1','51d29.3','-34d22.4','38d48.1','-26d16.4','8d54.8','-56d41.0','45d20.5','9d57.0','-46d53.1','-29d32.3','28d10.3','15d17.6']
@@ -220,7 +222,71 @@ def dispatch(values=None):
             time_default='00:00:00'
 
         #Calculations
+        latitude=declination[result_body]
+        values['lat']=latitude
+        star_SHA=SHA[result_body]
+        #2.a cumulative_progression
+        reference_year='2001'
+        reference_GHA='100d42.6'
+        observation_date=values['date']
+        observation_year=observation_date[0:4]
+        diff_year=int(observation_year)-int(reference_year)
+        decrease_GHA='0d14.31667'
+        cumulative_progression=calculateCumulativeProgression(decrease_GHA,diff_year)
+        #2.b leap years and total progression
+        ref_leap=int(reference_year)+1
+        ref_observation=int(observation_year)
+        leap_counter=0
+        while ref_leap<ref_observation:
+            if(ref_leap%4==0):
+                leap_counter=leap_counter+1;
+        rotational_period=86164.1
+        clock_period=86400
+        daily_rotation=abs((360.0*60*60)-(rotational_period/clock_period)*(360.0*60*6))
+        daily_rotation=daily_rotation/60.0
+        total_progression=calculateTotalProgression(daily_rotation,leap_counter)
+        #2.c calculate current GHA
+        current_GHA=calculateCurrentGHA(reference_GHA,cumulative_progression,total_progression)
 
+        observation_time=values['time']
+        #2.d earth rotation
+        date_a=observation_date
+        date_b=observation_year+'-01-01'
+        date_a=date_a+'T'+observation_time+'Z'
+        date_b=date_b+'T'+'00:00:00'+'Z'
+        date_1 = datetime.strptime(date_a, '%Y-%m-%dT%H:%M:%SZ')
+        date_2 = datetime.strptime(date_b, '%Y-%m-%dT%H:%M:%SZ')
+
+        timedelta = abs(date_1-date_2)
+        timedelta = timedelta.total_seconds()
+
+        amount_rotation=(timedelta/86164.1)
+        int_amount_rotation=int(amount_rotation)
+        amount_rotation=amount_rotation-int_amount_rotation
+        amount_rotation=amount_rotation*360.0
+        int_amount_rotation=int(amount_rotation)
+        amount_rotation=amount_rotation-int_amount_rotation
+        int_amount_rotation=int_amount_rotation*60
+        int_amount_rotation=round(int_amount_rotation,1)
+        total_amount_rotation=amount_rotation+'d'+int_amount_rotation
+
+        #2.e calculate total
+        total_GHA=calculateTotalGHA(current_GHA,total_amount_rotation)
+
+        #3.C star GHA
+        star_new_GHA=calculateStarNewGHA(total_GHA,star_SHA)
+
+        #clean up
+        array_star=[]
+        for x in star_new_GHA.split('d'):
+            array_star.append(x)
+        d_star=int(array_star[0])
+
+        while d_star>360:
+            d_star=d_star-360
+        final_answer=d_star+'d'+array_star[1]
+
+        values['lat']=final_answer
 
         return values    #This calculation is stubbed out
     elif(values['op'] == 'correct'):
@@ -289,3 +355,131 @@ def checkTime(time):
         return -1
 
     return 0
+
+def calculateCumulativeProgression(GHA,year):
+    d_GHA=GHA[0:2]
+    m_GHA=GHA[3:]
+    m_GHA=float(m_GHA)
+    year=int(year)
+    degree=0
+    total=year*m_GHA
+
+    while total>60.0:
+        total=total-60.0
+        degree=degree+1
+    total=round(total,1)
+    result='-'+degree+'d'+total
+    return result
+
+
+def calculateTotalProgression(rotation,year):
+
+    year=float(year)
+    degree=0
+    total=year*rotation
+
+    while total>60.0:
+        total=total-60.0
+        degree=degree+1
+
+    total=round(total,1)
+    #total_str=str(total)
+    #array_total=[]
+    #for x in total_str.split('.'):
+    #    array_total.append(int(x))
+
+    #if((array_total[0]>0) and (array_total[1])):
+
+    result=degree+'d'+total
+    return result
+
+def calculateCurrentGHA(rg,cp,lp):
+
+
+    array_rg=[]
+    for x in rg.split('d'):
+        array_rg.append(x)
+    array_cp=[]
+    for x in cp.split('d'):
+        array_cp.append(x)
+    array_lp=[]
+    for x in lp.split('d'):
+        array_lp.append(x)
+
+    degree=int(array_rg[0])+int(array_cp[0])+int(array_lp[0])
+    if(rg[0]=='-'):
+        array_rg[1]='-'+array_rg[1]
+    if(cp[0]=='-'):
+        array_cp[1]='-'+array_cp[1]
+    if(lp[0]=='-'):
+        array_lp[1]='-'+array_lp[1]
+
+    total=float(array_rg[1])+float(array_cp[1])+float(array_lp[1])
+    total=total/60.0
+    degree=degree+total
+    int_degree=int(degree)
+    float_degree=degree-int_degree
+    float_degree=float_degree*60.0
+    float_degree=round(float_degree,1)
+
+    result=int_degree+'d'+float_degree
+    return result
+
+def calculateTotalGHA(cg,ta):
+
+
+    array_cg=[]
+    for x in cg.split('d'):
+        array_cg.append(x)
+    array_ta=[]
+    for x in ta.split('d'):
+        array_ta.append(x)
+
+
+    degree=int(array_cg[0])+int(array_ta[0])
+    if(cg[0]=='-'):
+        array_cg[1]='-'+array_cg[1]
+    if(ta[0]=='-'):
+        array_ta[1]='-'+array_ta[1]
+
+
+    total=float(array_cg[1])+float(array_ta[1])
+    total=total/60.0
+    degree=degree+total
+    int_degree=int(degree)
+    float_degree=degree-int_degree
+    float_degree=float_degree*60.0
+    float_degree=round(float_degree,1)
+
+    result=int_degree+'d'+float_degree
+    return result
+
+
+def calculateStarNewGHA(cg,ta):
+
+
+    array_cg=[]
+    for x in cg.split('d'):
+        array_cg.append(x)
+    array_ta=[]
+    for x in ta.split('d'):
+        array_ta.append(x)
+
+
+    degree=int(array_cg[0])+int(array_ta[0])
+    if(cg[0]=='-'):
+        array_cg[1]='-'+array_cg[1]
+    if(ta[0]=='-'):
+        array_ta[1]='-'+array_ta[1]
+
+
+    total=float(array_cg[1])+float(array_ta[1])
+    total=total/60.0
+    degree=degree+total
+    int_degree=int(degree)
+    float_degree=degree-int_degree
+    float_degree=float_degree*60.0
+    float_degree=round(float_degree,1)
+
+    result=int_degree+'d'+float_degree
+    return result
