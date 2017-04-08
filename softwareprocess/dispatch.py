@@ -305,7 +305,7 @@ def dispatch(values=None):
             d_star=d_star-360
         final_answer=str(d_star)+'d'+str(array_star[1])
 
-        values['lat']=final_answer
+        values['long']=final_answer
 
         return values    #This calculation is stubbed out
     elif(values['op'] == 'correct'):
