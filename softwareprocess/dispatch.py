@@ -225,29 +225,37 @@ def dispatch(values=None):
         latitude=declination[result_body]
         values['lat']=latitude
         star_SHA=SHA[result_body]
+        #print(star_SHA)
         #2.a cumulative_progression
         reference_year='2001'
         reference_GHA='100d42.6'
         observation_date=values['date']
         observation_year=observation_date[0:4]
+        #print(observation_year)
         diff_year=int(observation_year)-int(reference_year)
+        #print(diff_year)
         decrease_GHA='0d14.31667'
         cumulative_progression=calculateCumulativeProgression(decrease_GHA,diff_year)
+        #print (cumulative_progression)
         #2.b leap years and total progression
         ref_leap=int(reference_year)+1
         ref_observation=int(observation_year)
         leap_counter=0
         while ref_leap<ref_observation:
             if(ref_leap%4==0):
-                leap_counter=leap_counter+1;
+                leap_counter=leap_counter+1
+            ref_leap=ref_leap+1
+        #print(leap_counter)
         rotational_period=86164.1
         clock_period=86400
-        daily_rotation=abs((360.0*60*60)-(rotational_period/clock_period)*(360.0*60*6))
+        daily_rotation=abs((360.0*60*60)-(rotational_period/clock_period)*(360.0*60*60))
         daily_rotation=daily_rotation/60.0
+        #print (daily_rotation)
         total_progression=calculateTotalProgression(daily_rotation,leap_counter)
+        #print (total_progression)
         #2.c calculate current GHA
         current_GHA=calculateCurrentGHA(reference_GHA,cumulative_progression,total_progression)
-
+        #print (current_GHA)
         observation_time=values['time']
         #2.d earth rotation
         date_a=observation_date
@@ -257,19 +265,30 @@ def dispatch(values=None):
         date_1 = datetime.strptime(date_a, '%Y-%m-%dT%H:%M:%SZ')
         date_2 = datetime.strptime(date_b, '%Y-%m-%dT%H:%M:%SZ')
 
+
         timedelta = abs(date_1-date_2)
+        #print (timedelta)
         timedelta = timedelta.total_seconds()
+        #print(timedelta)
 
         amount_rotation=(timedelta/86164.1)
         int_amount_rotation=int(amount_rotation)
+        #print (int_amount_rotation)
         amount_rotation=amount_rotation-int_amount_rotation
+        #print (amount_rotation)
         amount_rotation=amount_rotation*360.0
         int_amount_rotation=int(amount_rotation)
-        amount_rotation=amount_rotation-int_amount_rotation
-        int_amount_rotation=int_amount_rotation*60
-        int_amount_rotation=round(int_amount_rotation,1)
-        total_amount_rotation=amount_rotation+'d'+int_amount_rotation
+        amount_rotation1=int_amount_rotation
 
+        #print (int_amount_rotation)
+        amount_rotation=amount_rotation-int_amount_rotation
+        #print (amount_rotation)
+        int_amount_rotation=amount_rotation*60
+        #print (int_amount_rotation)
+        int_amount_rotation=round(int_amount_rotation,1)
+        #print (int_amount_rotation)
+        total_amount_rotation=str(amount_rotation1)+'d'+str(int_amount_rotation)
+        #print (total_amount_rotation)
         #2.e calculate total
         total_GHA=calculateTotalGHA(current_GHA,total_amount_rotation)
 
@@ -284,7 +303,7 @@ def dispatch(values=None):
 
         while d_star>360:
             d_star=d_star-360
-        final_answer=d_star+'d'+array_star[1]
+        final_answer=str(d_star)+'d'+str(array_star[1])
 
         values['lat']=final_answer
 
@@ -358,16 +377,18 @@ def checkTime(time):
 
 def calculateCumulativeProgression(GHA,year):
     d_GHA=GHA[0:2]
-    m_GHA=GHA[3:]
+    m_GHA=GHA[2:]
     m_GHA=float(m_GHA)
+    #print (m_GHA)
     year=int(year)
     degree=0
     total=year*m_GHA
-
+    #print(total)
     while total>60.0:
         total=total-60.0
         degree=degree+1
     total=round(total,1)
+    #print (total)
     result='-'+str(degree)+'d'+str(total)
     return result
 
@@ -390,7 +411,7 @@ def calculateTotalProgression(rotation,year):
 
     #if((array_total[0]>0) and (array_total[1])):
 
-    result=degree+'d'+total
+    result=str(degree)+'d'+str(total)
     return result
 
 def calculateCurrentGHA(rg,cp,lp):
@@ -422,7 +443,7 @@ def calculateCurrentGHA(rg,cp,lp):
     float_degree=float_degree*60.0
     float_degree=round(float_degree,1)
 
-    result=int_degree+'d'+float_degree
+    result=str(int_degree)+'d'+str(float_degree)
     return result
 
 def calculateTotalGHA(cg,ta):
@@ -451,7 +472,7 @@ def calculateTotalGHA(cg,ta):
     float_degree=float_degree*60.0
     float_degree=round(float_degree,1)
 
-    result=int_degree+'d'+float_degree
+    result=str(int_degree)+'d'+str(float_degree)
     return result
 
 
@@ -481,5 +502,11 @@ def calculateStarNewGHA(cg,ta):
     float_degree=float_degree*60.0
     float_degree=round(float_degree,1)
 
-    result=int_degree+'d'+float_degree
+    result=str(int_degree)+'d'+str(float_degree)
     return result
+
+
+
+sighting={'op':'predict', 'body': 'Betelgeuse', 'date': '2016-01-17', 'time': '03:15:42'}
+result=dispatch(sighting)
+print(result)
