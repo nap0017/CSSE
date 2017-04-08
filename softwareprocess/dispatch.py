@@ -411,13 +411,6 @@ def calculateTotalProgression(rotation,year):
         degree=degree+1
 
     total=round(total,1)
-    #total_str=str(total)
-    #array_total=[]
-    #for x in total_str.split('.'):
-    #    array_total.append(int(x))
-
-    #if((array_total[0]>0) and (array_total[1])):
-
     result=str(degree)+'d'+str(total)
     return result
 
@@ -511,9 +504,3 @@ def calculateStarNewGHA(cg,ta):
 
     result=str(int_degree)+'d'+str(float_degree)
     return result
-
-
-
-sighting={'op':'predict', 'body': 'Betelgeuse', 'date': '2016-01-17', 'time': '03:15:42'}
-result=dispatch(sighting)
-print(result)
