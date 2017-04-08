@@ -229,7 +229,11 @@ def dispatch(values=None):
         #2.a cumulative_progression
         reference_year='2001'
         reference_GHA='100d42.6'
-        observation_date=values['date']
+        if('date' in values):
+            observation_date=values['date']
+        else:
+            observation_date=date_default
+
         observation_year=observation_date[0:4]
         #print(observation_year)
         diff_year=int(observation_year)-int(reference_year)
@@ -256,7 +260,10 @@ def dispatch(values=None):
         #2.c calculate current GHA
         current_GHA=calculateCurrentGHA(reference_GHA,cumulative_progression,total_progression)
         #print (current_GHA)
-        observation_time=values['time']
+        if('time' in values):
+            observation_time=values['time']
+        else:
+            observation_time=time_default
         #2.d earth rotation
         date_a=observation_date
         date_b=observation_year+'-01-01'
