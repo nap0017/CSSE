@@ -364,6 +364,10 @@ def dispatch(values=None):
             values['error'] = 'invalid assumedLong'
             return values
 
+        result_assumedlat=checkLat(values['lat'])
+        if(result_assumedlat==-1):
+            values['error'] = 'invalid lat'
+            return values
 
 
 
