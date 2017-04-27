@@ -338,6 +338,12 @@ def dispatch(values=None):
             values['error'] = 'invalid lat'
             return values
 
+        result_lat=checkLat(values['lat'])
+        if(result_lat==-1):
+            values['error'] = 'invalid lat'
+            return values
+
+
         #long validations
         if(not(isinstance(values['long'],str))):
             values['error'] = 'invalid long'
@@ -348,15 +354,17 @@ def dispatch(values=None):
             values['error'] = 'invalid altitude'
             return values
 
-        #lat validations
+        #assumedLat validations
         if(not(isinstance(values['assumedLat'],str))):
             values['error'] = 'invalid assumedLat'
             return values
 
-        #lat validations
+        #assumedLong validations
         if(not(isinstance(values['assumedLong'],str))):
             values['error'] = 'invalid assumedLong'
             return values
+
+
 
 
 
@@ -556,5 +564,44 @@ def calculateStarNewGHA(cg,ta):
 
     result=str(int_degree)+'d'+str(float_degree)
     return result
+
+
+def checkLat(lat):
+    String1="0123456789"
+    latitude=lat
+    if("d" not in latitude):
+        return -1
+    latitudearray=[]
+    for x in latitude.split("d"):
+        latitudearray.append(x)
+    if(latitudearray[0]==""):
+        return -1
+    if(latitudearray[1]==""):
+        return -1
+    for ch in latitudearray[0]:
+        if(ch not in String1):
+            return -1
+
+    if(int(latitudearray[0])>int(89) or int(latitudearray[0])<int(-89) ):
+        return -1
+    if("." not in latitudearray[1]):
+        return -1
+    minutearray=[]
+    for x in latitudearray[1].split("."):
+        minutearray.append(x)
+    if(minutearray[0]==""):
+        return -1
+    if(minutearray[1]==""):
+        return -1
+    for ch in minutearray[0]:
+        if(ch not in String1):
+            return -1
+    for ch in minutearray[1]:
+        if(ch not in String1):
+            return -1
+    if(int(minutearray[0])<0 or int(minutearray[0])>59):
+        return -1
+    if(int(minutearray[1])<0 or int(minutearray[1])>9):
+        return -1
 
 
