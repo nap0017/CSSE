@@ -421,8 +421,23 @@ def dispatch(values=None):
         corrected_distance = (float(array[0])*60)+ float(array[1])
         corrected_distance = int(round(corrected_distance,1))
 
-        values['correctedDistance'] = corrected_distance
+        values['correctedDistance'] = str(corrected_distance)
         #print corrected_distance
+
+
+
+        corrected_azimuth = math.acos((math.sin(rad_lat)- (math.sin(rad_alat)*intermediateDistance))/(math.cos(rad_alat)*math.cos(math.asin(intermediateDistance))))
+
+        corrected_azimuth = (corrected_azimuth * 180.0)/math.pi
+        int_corrected_azimuth = int(corrected_azimuth)
+        float_corrected_azimuth = (corrected_azimuth - int_corrected_azimuth)*60.0
+        if(float(float_corrected_azimuth)<float(0.0)):
+            float_corrected_azimuth = float(float_corrected_azimuth) * float(-1)
+
+        float_corrected_azimuth=round(float_corrected_azimuth,1)
+        corrected_azimuth = str(int_corrected_azimuth)+"d"+str(float_corrected_azimuth)
+
+        values['correctedAzimuth'] = str(corrected_azimuth)
 
 
         return values    #This calculation is stubbed out
@@ -773,6 +788,6 @@ def convertradian(alt):
     return radian
 
 
-#sighting={'op':'correct', 'lat':'16d32.3', 'long':'95d41.6', 'altitude':'13d42.3',  'assumedLat':'-53d38.4', 'assumedLong':'74d35.3'}
-#mySample = dispatch(sighting)
-#print mySample
+sighting={'op':'correct', 'lat':'16d32.3', 'long':'95d41.6', 'altitude':'13d42.3',  'assumedLat':'-53d38.4', 'assumedLong':'74d35.3'}
+mySample = dispatch(sighting)
+print mySample
