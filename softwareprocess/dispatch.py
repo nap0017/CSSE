@@ -348,11 +348,22 @@ def dispatch(values=None):
         if(not(isinstance(values['long'],str))):
             values['error'] = 'invalid long'
             return values
+        result_long=checkLong(values['long'])
+        if(result_long==-1):
+            values['error'] = 'invalid long'
+            return values
+
 
         #altitude validations
         if(not(isinstance(values['altitude'],str))):
             values['error'] = 'invalid altitude'
             return values
+
+        result_altitude=checkLong(values['altitude'])
+        if(result_altitude==-1):
+            values['error'] = 'invalid altitude'
+            return values
+
 
         #assumedLat validations
         if(not(isinstance(values['assumedLat'],str))):
@@ -644,6 +655,51 @@ def checkLong(long):
         return -1
     minutearray=[]
     for x in longitudearray[1].split("."):
+        minutearray.append(x)
+
+
+    if(minutearray[0]==""):
+        return -1
+    if(minutearray[1]==""):
+        return -1
+
+    if(minutearray[0].isdigit()==False):
+        return -1
+    if(minutearray[1].isdigit()==False):
+        return -1
+
+    if(int(minutearray[0])<0 or int(minutearray[0])>59):
+        return -1
+    if(int(minutearray[1])<0 or int(minutearray[1])>9):
+        return -1
+
+    return 0
+
+
+def checkAltitude(alt):
+
+    altitude=alt
+    if("d" not in altitude):
+        return -1
+    altitudearray=[]
+    for x in altitude.split("d"):
+        altitudearray.append(x)
+    if(altitudearray[0]==""):
+        return -1
+    if(altitudearray[1]==""):
+        return -1
+    if(altitudearray[0][0:1]=="-"):
+       if(altitudearray[0][1:].isdigit()==False):
+            return -1
+    else:
+        if(altitudearray[0].isdigit()==False):
+            return -1
+    if(int(altitudearray[0])>int(89) or int(altitudearray[0])<=int(0) ):
+        return -1
+    if("." not in altitudearray[1]):
+        return -1
+    minutearray=[]
+    for x in altitudearray[1].split("."):
         minutearray.append(x)
 
 
