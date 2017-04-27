@@ -572,7 +572,7 @@ def calculateStarNewGHA(cg,ta):
 
 
 def checkLat(lat):
-    String1="0123456789"
+
     latitude=lat
     if("d" not in latitude):
         return -1
