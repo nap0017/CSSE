@@ -788,6 +788,3 @@ def convertradian(alt):
     return radian
 
 
-sighting={'op':'correct', 'lat':'16d32.3', 'long':'95d41.6', 'altitude':'13d42.3',  'assumedLat':'-53d38.4', 'assumedLong':'74d35.3'}
-mySample = dispatch(sighting)
-print mySample
