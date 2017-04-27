@@ -504,3 +504,5 @@ def calculateStarNewGHA(cg,ta):
 
     result=str(int_degree)+'d'+str(float_degree)
     return result
+
+
