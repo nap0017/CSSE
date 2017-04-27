@@ -583,9 +583,8 @@ def checkLat(lat):
         return -1
     if(latitudearray[1]==""):
         return -1
-    for ch in latitudearray[0]:
-        if(ch not in String1):
-            return -1
+    if(latitudearray[0].isdigit()==False):
+        return -1
 
     if(int(latitudearray[0])>int(89) or int(latitudearray[0])<int(-89) ):
         return -1
