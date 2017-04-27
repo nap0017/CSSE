@@ -328,6 +328,10 @@ def dispatch(values=None):
 
         return values    #This calculation is stubbed out
     elif(values['op'] == 'correct'):
+        #mandatory validations
+        if(not(('lat' in values) or ('long' in values) or ('lat' in values) or ('altitude' in values) or ('assumedLat' in values) or ('assumedLong' in values)) ):
+            values['error'] = 'mandatory information is missing'
+            return values
         return values    #This calculation is stubbed out
     elif(values['op'] == 'locate'):
         return values    #This calculation is stubbed out
@@ -374,8 +378,6 @@ def checkDate(date):
             return -1
         if(int(date[5:7])==int(2) and (int(date[8:10])>28) and (int(date[0:4])%4!=0) ):
             return -1
-
-
 
     return 0
 
