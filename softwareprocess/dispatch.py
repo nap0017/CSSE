@@ -371,6 +371,10 @@ def dispatch(values=None):
             return values
 
 
+        result_assumedlong=checkLong(values['assumedLong'])
+        if(result_assumedlong==-1):
+            values['error'] = 'invalid assumedlong'
+            return values
 
 
 
@@ -595,6 +599,51 @@ def checkLat(lat):
         return -1
     minutearray=[]
     for x in latitudearray[1].split("."):
+        minutearray.append(x)
+
+
+    if(minutearray[0]==""):
+        return -1
+    if(minutearray[1]==""):
+        return -1
+
+    if(minutearray[0].isdigit()==False):
+        return -1
+    if(minutearray[1].isdigit()==False):
+        return -1
+
+    if(int(minutearray[0])<0 or int(minutearray[0])>59):
+        return -1
+    if(int(minutearray[1])<0 or int(minutearray[1])>9):
+        return -1
+
+    return 0
+
+
+def checkLong(long):
+
+    longitude=long
+    if("d" not in longitude):
+        return -1
+    longitudearray=[]
+    for x in longitude.split("d"):
+        longitudearray.append(x)
+    if(longitudearray[0]==""):
+        return -1
+    if(longitudearray[1]==""):
+        return -1
+    if(longitudearray[0][0:1]=="-"):
+       if(longitudearray[0][1:].isdigit()==False):
+            return -1
+    else:
+        if(longitudearray[0].isdigit()==False):
+            return -1
+    if(int(longitudearray[0])>int(359) or int(longitudearray[0])<int(0) ):
+        return -1
+    if("." not in longitudearray[1]):
+        return -1
+    minutearray=[]
+    for x in longitudearray[1].split("."):
         minutearray.append(x)
 
 
