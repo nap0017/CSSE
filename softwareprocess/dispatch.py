@@ -338,6 +338,27 @@ def dispatch(values=None):
             values['error'] = 'invalid lat'
             return values
 
+        #long validations
+        if(not(isinstance(values['long'],str))):
+            values['error'] = 'invalid long'
+            return values
+
+        #altitude validations
+        if(not(isinstance(values['altitude'],str))):
+            values['error'] = 'invalid altitude'
+            return values
+
+        #lat validations
+        if(not(isinstance(values['assumedLat'],str))):
+            values['error'] = 'invalid assumedLat'
+            return values
+
+        #lat validations
+        if(not(isinstance(values['assumedLong'],str))):
+            values['error'] = 'invalid assumedLong'
+            return values
+
+
 
 
         return values    #This calculation is stubbed out
