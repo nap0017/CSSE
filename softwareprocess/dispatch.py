@@ -209,6 +209,10 @@ def dispatch(values=None):
 
         #date check
         if('date' in values):
+            if(not(isinstance(values['date'],str))):
+                values['error'] = 'invalid date'
+                return values
+
             result_date=checkDate(values['date'])
             if(result_date==-1):
                 values['error'] = 'invalid date'
@@ -363,6 +367,15 @@ def checkDate(date):
         return -1
     if(int(date[8:10])<0 or int(date[8:10])>31):
         return -1
+    if(int(date[5:7])==int(2) or int(date[5:7])==int(4) or int(date[5:7])==int(6) or int(date[5:7])==int(9) or int(date[5:7])==int(11)):
+        if(int(date[8:10])<0 or int(date[8:10])>30):
+            return -1
+        if(int(date[5:7])==int(2) and (int(date[8:10])>29) and (int(date[0:4])%4==0)):
+            return -1
+        if(int(date[5:7])==int(2) and (int(date[8:10])>28) and (int(date[0:4])%4!=0) ):
+            return -1
+
+
 
     return 0
 
