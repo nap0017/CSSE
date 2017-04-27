@@ -328,10 +328,12 @@ def dispatch(values=None):
 
         return values    #This calculation is stubbed out
     elif(values['op'] == 'correct'):
+
         #mandatory validations
-        if(not(('lat' in values) or ('long' in values) or ('lat' in values) or ('altitude' in values) or ('assumedLat' in values) or ('assumedLong' in values)) ):
+        if(not(('lat' in values) or ('long' in values)  or ('altitude' in values) or ('assumedLat' in values) or ('assumedLong' in values)) ):
             values['error'] = 'mandatory information is missing'
             return values
+
         return values    #This calculation is stubbed out
     elif(values['op'] == 'locate'):
         return values    #This calculation is stubbed out
