@@ -333,6 +333,16 @@ def dispatch(values=None):
         if(not(('lat' in values) and ('long' in values)  and ('altitude' in values) and ('assumedLat' in values) and ('assumedLong' in values)) ):
             values['error'] = 'mandatory information is missing'
             return values
+
+        if('correctedDistance' in values):
+            values['error'] = 'invalid input correctedDistance'
+            return values
+
+        if('correctedAzimuth' in values):
+            values['error'] = 'invalid input correctedAzimuth'
+            return values
+
+
         #lat validations
         if(not(isinstance(values['lat'],str))):
             values['error'] = 'invalid lat'
