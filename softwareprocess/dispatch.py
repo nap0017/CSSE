@@ -597,12 +597,12 @@ def checkLat(lat):
         return -1
     if(minutearray[1]==""):
         return -1
-    for ch in minutearray[0]:
-        if(ch not in String1):
-            return -1
-    for ch in minutearray[1]:
-        if(ch not in String1):
-            return -1
+
+    if(minutearray[0].isdigit()==False):
+        return -1
+    if(minutearray[1].isdigit()==False):
+        return -1
+
     if(int(minutearray[0])<0 or int(minutearray[0])>59):
         return -1
     if(int(minutearray[1])<0 or int(minutearray[1])>9):
