@@ -35,12 +35,12 @@ class dispatch_correct_Test(unittest.TestCase):
 
     def test200_002_ShouldReturnError(self):
         sighting={'op':'correct', 'long':'95.41.6', 'altitude':'13d42.3',  'assumedLat':'-53d38.4', 'assumedLong':' 74d35.3'}
-        result={'error':'mandatory information is missing', 'op': 'correct'}
+        result={'error':'mandatory information is missing', 'op':'correct', 'long':'95.41.6', 'altitude':'13d42.3',  'assumedLat':'-53d38.4', 'assumedLong':' 74d35.3'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
 
-    def test200_002_ShouldReturnError(self):
+    def test200_003_ShouldReturnError(self):
         sighting={'op':'correct','lat': 16 , 'long':'95.41.6', 'altitude':'13d42.3',  'assumedLat':'-53d38.4', 'assumedLong':' 74d35.3'}
-        result={'error':'mandatory information is missing', 'op': 'correct'}
+        result={'error':'invalid lat', 'op':'correct','lat': 16 , 'long':'95.41.6', 'altitude':'13d42.3',  'assumedLat':'-53d38.4', 'assumedLong':' 74d35.3'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
