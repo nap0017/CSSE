@@ -81,3 +81,10 @@ class dispatch_correct_Test(unittest.TestCase):
         result={'error':'invalid altitude','op':'correct', 'lat':'16d32.3', 'long':'95d41.6', 'altitude':'-13d42.3',  'assumedLat':'-70d38.4', 'assumedLong':'74d35.3'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
+
+    def test200_009_ShouldReturnError(self):
+        sighting={'op':'correct', 'lat':'16d32.3', 'long':'95d41.6', 'altitude':'13d42.3',  'assumedLat':'-53d38.4', 'assumedLong':'74d35.3','correctedDistance':'3950'}
+        result={'error':'invalid input correctedDistance','op':'correct', 'lat':'16d32.3', 'long':'95d41.6', 'altitude':'13d42.3',  'assumedLat':'-53d38.4', 'assumedLong':'74d35.3'}
+        mySample = DP.dispatch(sighting)
+        self.assertEqual(result['error'],mySample['error'])
+
