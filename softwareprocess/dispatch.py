@@ -330,7 +330,7 @@ def dispatch(values=None):
     elif(values['op'] == 'correct'):
 
         #mandatory validations
-        if(not(('lat' in values) or ('long' in values)  or ('altitude' in values) or ('assumedLat' in values) or ('assumedLong' in values)) ):
+        if(not(('lat' in values) and ('long' in values)  and ('altitude' in values) and ('assumedLat' in values) and ('assumedLong' in values)) ):
             values['error'] = 'mandatory information is missing'
             return values
 
