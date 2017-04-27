@@ -387,6 +387,42 @@ def dispatch(values=None):
             values['error'] = 'invalid assumedlong'
             return values
 
+        correct_long= values['long']
+        correct_assumedlong=values['assumedLong']
+
+        correct_lat=values['lat']
+        correct_assumedlat=values['assumedLat']
+        correct_altitude = values['altitude']
+        LHA = calculateStarNewGHA(correct_long,correct_assumedlong)
+
+        rad_lat=convertradian(correct_lat)
+        rad_alat=convertradian(correct_assumedlat)
+        rad_LHA=convertradian(LHA)
+        intermediateDistance = ((math.sin(convertradian(correct_lat))*math.sin(convertradian(correct_assumedlat)))
+                                +(math.cos(convertradian(correct_lat))*math.cos(convertradian(correct_assumedlat))*math.cos(convertradian(LHA))))
+        #print  intermediateDistance
+        correct_correctedaltitude = math.asin(intermediateDistance)
+        correct_correctedaltitude = round(correct_correctedaltitude,4)
+        correct_correctedaltitude = (correct_correctedaltitude * 180.0)/(math.pi)
+        int_correctedaltitude = int(correct_correctedaltitude)
+        float_correctedaltitude = (correct_correctedaltitude - int_correctedaltitude)*60.0
+        if(float(float_correctedaltitude)<float(0.0)):
+            float_correctedaltitude = float(float_correctedaltitude) * float(-1)
+
+        int_correctedaltitude = int(int_correctedaltitude) * int(-1)
+
+        correct_correctedaltitude = str(int_correctedaltitude)+"d"+str(float_correctedaltitude)
+        #correct_correctedaltitude = "52d07.8"
+        corrected_distance = calculateStarNewGHA(correct_altitude,str(correct_correctedaltitude))
+        array=[]
+        for x in corrected_distance.split("d"):
+            array.append(x)
+
+        corrected_distance = (float(array[0])*60)+ float(array[1])
+        corrected_distance = int(round(corrected_distance,1))
+
+        values['correctedDistance'] = corrected_distance
+        #print corrected_distance
 
 
         return values    #This calculation is stubbed out
@@ -566,7 +602,6 @@ def calculateStarNewGHA(cg,ta):
     for x in ta.split('d'):
         array_ta.append(x)
 
-
     degree=int(array_cg[0])+int(array_ta[0])
     if(cg[0]=='-'):
         array_cg[1]='-'+array_cg[1]
@@ -720,3 +755,24 @@ def checkAltitude(alt):
 
     return 0
 
+
+def convertradian(alt):
+
+    array=[]
+    for x in alt.split("d"):
+        array.append(x)
+
+
+    minutedegree=float(array[1])/60.0
+    if(array[0][0:1]=="-"):
+        minutedegree=minutedegree*(-1)
+
+    totaldegree=float(array[0])+minutedegree
+    radian=(totaldegree*math.pi)/180.0
+
+    return radian
+
+
+#sighting={'op':'correct', 'lat':'16d32.3', 'long':'95d41.6', 'altitude':'13d42.3',  'assumedLat':'-53d38.4', 'assumedLong':'74d35.3'}
+#mySample = dispatch(sighting)
+#print mySample
