@@ -190,6 +190,10 @@ def dispatch(values=None):
         if(not('body' in values)):
             values['error'] = 'mandatory information is missing'
             return values
+        if(not(isinstance(values['body'],str))):
+            values['error'] = 'invalid body'
+            return values
+
         #long and lat validations
         if(('long' in values)):
             values['error'] = 'invalid input given(long)'
@@ -214,6 +218,10 @@ def dispatch(values=None):
 
         #time check
         if('time' in values):
+            if(not(isinstance(values['time'],str))):
+                values['error'] = 'invalid time'
+                return values
+
             result_time=checkTime(values['time'])
             if(result_time==-1):
                 values['error'] = 'invalid time'
