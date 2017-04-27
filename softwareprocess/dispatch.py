@@ -359,14 +359,15 @@ def dispatch(values=None):
             values['error'] = 'invalid assumedLat'
             return values
 
+        result_assumedlat=checkLat(values['assumedLat'])
+        if(result_assumedlat==-1):
+            values['error'] = 'invalid assumedlat'
+            return values
+
+
         #assumedLong validations
         if(not(isinstance(values['assumedLong'],str))):
             values['error'] = 'invalid assumedLong'
-            return values
-
-        result_assumedlat=checkLat(values['lat'])
-        if(result_assumedlat==-1):
-            values['error'] = 'invalid assumedlat'
             return values
 
 
