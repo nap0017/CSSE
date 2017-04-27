@@ -109,14 +109,14 @@ class dispatch_predict_Test(unittest.TestCase):
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
 
-   def test200_013_ShouldReturnDateError(self):
-        sighting={'op':'predict', 'body': 'Betelgeuse', 'date': '2000-01-17', 'time': '03:15:42'}
+    def test200_013_ShouldReturnDateError(self):
+        sighting={'op':'predict', 'body': 'Betelgeuse', 'date': '2017-02-29', 'time': '03:15:42'}
         result={'op':'predict', 'body': 'Betelgeuse', 'date': '2000-01-17', 'time': '03:15:42', 'error':'invalid date'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
 
-   def test200_014_ShouldReturnDateError(self):
-        sighting={'op':'predict', 'body': 'Betelgeuse', 'date': '2000-01-17', 'time': '03:15:42'}
+    def test200_014_ShouldReturnDateError(self):
+        sighting={'op':'predict', 'body': 'Betelgeuse', 'date': '2016-02-30', 'time': '03:15:42'}
         result={'op':'predict', 'body': 'Betelgeuse', 'date': '2000-01-17', 'time': '03:15:42', 'error':'invalid date'}
         mySample = DP.dispatch(sighting)
         self.assertEqual(result['error'],mySample['error'])
