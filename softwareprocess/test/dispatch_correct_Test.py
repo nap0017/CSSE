@@ -21,6 +21,15 @@ class dispatch_correct_Test(unittest.TestCase):
 
 
 
+    def test100_001_ShouldReturnCorrectedDistanceAndAzimuth(self):
+        sighting={'op':'correct', 'lat':'16d32.3', 'long':'95d41.6', 'altitude':'13d42.3',  'assumedLat':'-53d38.4', 'assumedLong':'74d35.3'}
+        result={'op':'correct', 'lat':'16d32.3', 'long':'95d41.6', 'altitude':'13d42.3',  'assumedLat':'-53d38.4', 'assumedLong':'74d35.3', 'correctedDistance':'-3950', 'correctedAzimuth':'164d43.1'}
+        mySample = DP.dispatch(sighting)
+        self.assertEqual(result['correctedDistance'],mySample['correctedDistance'])
+        self.assertEqual(result['correctedAzimuth'],mySample['correctedAzimuth'])
+
+
+
 
 
 
