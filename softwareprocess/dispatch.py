@@ -783,6 +783,7 @@ def checkAltitude(alt):
 
 def convertradian(alt):
 
+    #convertdegreetoradian
     array=[]
     for x in alt.split("d"):
         array.append(x)
